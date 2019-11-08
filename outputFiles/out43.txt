@@ -1,0 +1,2 @@
+cn('CS101',Name)? No
+ncg('Snoopy',Course,Grade)? No
