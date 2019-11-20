@@ -1,16 +1,65 @@
 #include "relation.h"
 
 relation relation::join(relation input) {
+
+	//Is done
+
+	set<pair<int, int>> columnMatch;
+	vector<int> notMatch;
+
 	relation newRelation;
-	newRelation.setName(input.getName());
-	newRelation.setAttribute(input.getAttribute());
+	newRelation.setName("Joined Predicate");
+	vector<string> newAttributeStringVect = attributeNames;
+	for (unsigned int i = 0; i < input.getAttribute().size(); ++i) {
+		bool isIn = false;
+		for (unsigned int j = 0; j < attributeNames.size(); ++j) {
+			//bool isIn = false;
+			if (input.getAttribute().at(i) == attributeNames.at(j)) {
+				isIn = true;
+				columnMatch.insert(make_pair(j,i));
+				break;
+			}
+		}
+		if (!isIn) {
+			newAttributeStringVect.push_back(input.getAttribute().at(i));
+			notMatch.push_back(i);
+		}
+	}
+	newRelation.setAttribute(newAttributeStringVect);
 
 
+
+	for (auto t : tupleSet) {
+		for (auto r : input.getTuple()) {
+			bool theyMatch = true;
+			for (auto c : columnMatch) {
+				if (t.at(c.first) != r.at(c.second)) {
+					theyMatch = false;
+					break;
+				}
+			}
+			if (theyMatch) {
+				Tuple newTuple = t;
+				for (unsigned int i = 0; i < notMatch.size(); ++i) {
+					newTuple.push_back(r.at(notMatch.at(i)));
+				}
+				newRelation.addTuple(newTuple);
+			}
+		}
+	}
 	return newRelation;
 }
 
 relation relation::unionize(relation input) {
 	relation newRelation;
+	newRelation.setName(name);
+	newRelation.setAttribute(attributeNames);
+	for (auto t : tupleSet) {
+		newRelation.addTuple(t);
+	}
+	for (auto t : input.getTuple()) {
+		newRelation.addTuple(t);
+	}
 	return newRelation;
 }
 
