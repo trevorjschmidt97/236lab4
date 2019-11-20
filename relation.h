@@ -43,6 +43,12 @@ public:
 
 	void toString();
 
+	relation join(relation input);
+
+	relation unionize(relation input);
+	//Add join
+	//Add union
+
 
 private:
 	string name;

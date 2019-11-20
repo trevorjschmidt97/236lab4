@@ -54,30 +54,31 @@ class dataLog
 public:
 	dataLog(void){};
 
-	void executeDataLog()
-	{
+	void executeDataLog() {
 		datalogProgram();
 	}
 
-   	void setVect(vector <token*> vect)
-   	{
+   	void setVect(vector <token*> vect) {
 		tokenVect = vect;
    	}
 
 
-	vector <predicate*> getSchemeVect()
-	{
+	vector <predicate*> getSchemeVect() {
 		return schemeVect;
 	}
-	vector <predicate*> getFactVect()
-	{
+	vector <predicate*> getFactVect() {
 		return factVect;
 	}
-	vector <predicate*> getQuerieVect()
-	{
+	vector <predicate*> getQuerieVect() {
 		return querieVect;
 	}
- 
+	vector <rule*> getRuleVect() {
+		return ruleVect;
+	}
+	vector <predicate*> getRulePredVect() {
+		return rulePredVect;
+	}
+
 
 private:
    	vector <token*> tokenVect;

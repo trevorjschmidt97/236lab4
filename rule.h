@@ -12,9 +12,9 @@
 #include <stdio.h>
 #include <vector>
 #include "predicate.h"
+#include <string>
 
-class rule
-{
+class rule {
 public:
     	rule () {}
 
@@ -25,6 +25,7 @@ public:
         	for (unsigned int i = 2; i < ruleVector.size(); ++i) {
             		os += "," + ruleVector.at(i)->getPredicate();
         	}
+		os += ".\n";
         	return os;
     	}
 

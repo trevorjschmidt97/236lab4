@@ -26,18 +26,25 @@ int main(int argc, const char * argv[]) {
     	//Reads in entire file to string
     	while (getline(fin, input, '\0')) {}
 
-    	//Passes the entire file to the scanner
+    	//Passes the entire file to the scanner LAB 1
     	scanner lexer(input);
     	lexer.executeLexer();
 
+	//Uses the tokens to create a datalog program LAB 2
 	dataLog parser;
 	parser.setVect(lexer.getVect());
 	parser.executeDataLog();
 
+	//Uses the datalog program to interpret the queries LAB 3
 	interpreter interpreterr;
 	interpreterr.setSchemeVect(parser.getSchemeVect());
 	interpreterr.setFactVect(parser.getFactVect());
 	interpreterr.setQuerieVect(parser.getQuerieVect());
+
+	interpreterr.setRuleVect(parser.getRuleVect());
+	interpreterr.setRulePredVect(parser.getRulePredVect());
+
+
 	interpreterr.executeInterpreter();
 
 	//lexer.toString();

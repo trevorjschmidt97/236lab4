@@ -11,6 +11,7 @@
 #include "dataLog.h"
 #include "predicate.h"
 #include "relation.h"
+#include "rule.h"
 
 using namespace std;
 
@@ -31,13 +32,24 @@ public:
 		this->querieVect = x;
 	}
 
+	void setRuleVect(vector<rule*> x) {
+		this->ruleVect = x;
+	}
+
+	void setRulePredVect(vector<predicate*> x) {
+		this->rulePredVect = x;
+	}
+
 	relation interpretQuerie(predicate* querie);
 
+	//for Queries
 	void executeInterpreter();
 private:
 	vector<predicate*> schemeVect;
 	vector<predicate*> factVect;
 	vector<predicate*> querieVect;
+	vector<predicate*> rulePredVect;
+	vector<rule*> ruleVect;
 
 	database relationMap;
 

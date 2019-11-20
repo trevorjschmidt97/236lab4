@@ -1,5 +1,24 @@
 #include "relation.h"
 
+//Add join
+
+//Add union
+
+relation relation::join(relation input) {
+	relation newRelation;
+
+	return newRelation;
+}
+
+relation relation::unionize(relation input) {
+	relation newRelation;
+
+
+
+	return newRelation;
+}
+
+
 void relation::select1(int index, string input) { 
 	set<Tuple> newTupleSet;
 
