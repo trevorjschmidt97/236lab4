@@ -161,7 +161,7 @@ void dataLog::fact()
     	//Sets the first string inside the parenthesis for the fact
     	factListStrings.push_back(tokenVect.front()->getValue());
     	domainVect.push_back(tokenVect.front()->getValue());
-   	checkNPop("STRING");
+      checkNPop("STRING");
     	stringList();
     	checkNPop("RIGHT_PAREN");
     	checkNPop("PERIOD");

@@ -12,9 +12,7 @@ using namespace std;
 class database : public map<string, relation>
 {
 public:
-
 private:
-
 };
 
 #endif //database.h

@@ -20,6 +20,10 @@ class interpreter
 public:
 	interpreter(void){};
 
+	//for Queries
+	void executeInterpreter();
+	relation interpretQuerie(predicate* querie);
+
 	void setSchemeVect(vector<predicate*> x) {
 		this->schemeVect = x;
 	}
@@ -40,10 +44,6 @@ public:
 		this->rulePredVect = x;
 	}
 
-	relation interpretQuerie(predicate* querie);
-
-	//for Queries
-	void executeInterpreter();
 private:
 	vector<predicate*> schemeVect;
 	vector<predicate*> factVect;

@@ -1,25 +1,21 @@
 #include "relation.h"
 
-//Add join
-
-//Add union
-
 relation relation::join(relation input) {
 	relation newRelation;
+	newRelation.setName(input.getName());
+	newRelation.setAttribute(input.getAttribute());
+
 
 	return newRelation;
 }
 
 relation relation::unionize(relation input) {
 	relation newRelation;
-
-
-
 	return newRelation;
 }
 
 
-void relation::select1(int index, string input) { 
+void relation::select1(int index, string input) {
 	set<Tuple> newTupleSet;
 
         for (auto t : tupleSet) {
@@ -80,4 +76,3 @@ void relation::toString() {
              	}
       	}
 }
-

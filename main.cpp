@@ -28,11 +28,12 @@ int main(int argc, const char * argv[]) {
 
     	//Passes the entire file to the scanner LAB 1
     	scanner lexer(input);
+      //Creates a vector of tokens
     	lexer.executeLexer();
 
-	//Uses the tokens to create a datalog program LAB 2
+	     //Uses the tokens to create a datalog program LAB 2
 	dataLog parser;
-	parser.setVect(lexer.getVect());
+  parser.setVect(lexer.getVect());
 	parser.executeDataLog();
 
 	//Uses the datalog program to interpret the queries LAB 3
@@ -46,6 +47,7 @@ int main(int argc, const char * argv[]) {
 
 
 	interpreterr.executeInterpreter();
+
 
 	//lexer.toString();
 
