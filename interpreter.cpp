@@ -62,26 +62,26 @@ void interpreter::executeInterpreter() {
            	relationMap[factVect.at(i)->getID()].addTuple(factVect.at(i)->getParameterList());
      	}
 
-	int check = 0;
+	int check;
+	int count = 0;
 
 	cout << "Rule Evaluation\n";
 	//This is the meat of project 4
 	//For each rule in the rule vector
-	for (unsigned int i = 0; i < ruleVect.size(); ++i) {
+	do {
 		check = 0;
-		//First print out the rule
-		cout << ruleVect.at(i)->toString();
-
-
-
-
-
-
-	}
-
+		for (unsigned int i = 0; i < ruleVect.size(); ++i) {
+			//First print out the rule
+			cout << ruleVect.at(i)->toString();
+			for (unsigned int j = 1; j < ruleVect.at(i)->getPredVect().size() - 1; ++j) {
+				ruleVect.at(i)->getPredVect().at(j)->join(ruleVect.at(i)->getPredVect().at(j + 1));
+			}
+		}
+		++count;
+	} while (check != 0);
 
 	cout << endl;
-	cout << "Schemes populated after " << " passes through the Rules.\n";
+	cout << "Schemes populated after " << count <<  " passes through the Rules.\n";
 	cout << endl;
 
 	cout << "Query Evaluation\n";

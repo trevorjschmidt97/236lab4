@@ -33,6 +33,10 @@ public:
         	ruleVector = input;
     	}
 
+	vector <predicate*> getPredVect() {
+		return ruleVector;
+	}
+
 private:
     	vector <predicate*> ruleVector;
 

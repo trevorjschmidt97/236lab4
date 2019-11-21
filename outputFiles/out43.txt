@@ -1,0 +1,13 @@
+Rule Evaluation
+cn(c,n) :- snap(S,n,A,P),csg(c,S,G).
+ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
+cn(c,n) :- snap(S,n,A,P),csg(c,S,G).
+ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
+cn(c,n) :- snap(S,n,A,P),csg(c,S,G).
+ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
+
+Schemes populated after 3 passes through the Rules.
+
+Query Evaluation
+cn('CS101',Name)? No
+ncg('Snoopy',Course,Grade)? No
