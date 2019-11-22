@@ -73,9 +73,28 @@ void interpreter::executeInterpreter() {
 		for (unsigned int i = 0; i < ruleVect.size(); ++i) {
 			//First print out the rule
 			cout << ruleVect.at(i)->toString();
-			for (unsigned int j = 1; j < ruleVect.at(i)->getPredVect().size() - 1; ++j) {
-				ruleVect.at(i)->getPredVect().at(j)->join(ruleVect.at(i)->getPredVect().at(j + 1));
+			relation newRelation = interpretQuerie(ruleVect.at(i)->getPredVect().at(1));
+			for (unsigned int j = 2; j < ruleVect.at(i)->getPredVect().size(); ++j) {
+				newRelation = newRelation.join(interpretQuerie(ruleVect.at(i)->getPredVect().at(j)));
 			}
+			map<string, int> seenVariables;
+			vector<string> simpleName = ruleVect.at(i)->getPredVect().at(0)->getParameterList();
+			for (unsigned int j = 0; j < simpleName.size(); ++j) {
+				for (unsigned int k = 0; k < newRelation.getAttribute().size(); ++k) {
+					//cout << "simpleName.at " << j << " is " << simpleName.at(j) << "\n";
+					//cout << "newrelationgetattribute at " << k << "is " << newRelation.getAttribute().at(k) << "\n";
+					if (simpleName.at(j) == newRelation.getAttribute().at(k)) {
+						seenVariables[simpleName.at(j)] = k;
+					}
+				}
+			}
+			newRelation.project(seenVariables, simpleName);
+			newRelation.setAttribute(simpleName);
+
+			//creat a funciton to compare the set of tuples of new relation and the original,
+			//if there is a difference, change my check, and print out those different tuples
+
+			relationMap.at(ruleVect.at(i)->getPredVect().at(0).getID()) = relationMap.at(ruleVect.at(i)->getPredVect().at(0).getID()).unionize(newRelation);
 		}
 		++count;
 	} while (check != 0);

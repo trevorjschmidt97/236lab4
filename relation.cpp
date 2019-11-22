@@ -2,8 +2,6 @@
 
 relation relation::join(relation input) {
 
-	//Is done
-
 	set<pair<int, int>> columnMatch;
 	vector<int> notMatch;
 
