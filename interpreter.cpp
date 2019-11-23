@@ -94,7 +94,25 @@ void interpreter::executeInterpreter() {
 			//creat a funciton to compare the set of tuples of new relation and the original,
 			//if there is a difference, change my check, and print out those different tuples
 
-			relationMap.at(ruleVect.at(i)->getPredVect().at(0).getID()) = relationMap.at(ruleVect.at(i)->getPredVect().at(0).getID()).unionize(newRelation);
+			if (newRelation.getTuple() != relationMap[newRelation.getName()].getTuple()) {
+                                ++check;
+                                if (newRelation.getTuple().size() != 0) {
+                                        newRelation.toString();
+                                }
+                        }
+			else {
+				break;
+			}
+
+			relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()) = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).unionize(newRelation);
+
+			/*if (newRelation.getTuple() != relationMap[newRelation.getName()].getTuple()) {
+                                ++check;
+                                if (newRelation.getTuple().size() != 0) {
+					newRelation.toString();
+                                }
+                        }*/
+
 		}
 		++count;
 	} while (check != 0);
