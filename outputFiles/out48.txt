@@ -1,1 +1,11 @@
-z(a,b,c,d)? No
+Rule Evaluation
+z(a,b,c,d) :- x(a,b,c),y(b,c,d).
+  a='2', b='2', c='2', d='4'
+z(a,b,c,d) :- x(a,b,c),y(b,c,d).
+  a='2', b='2', c='2', d='4'
+
+Schemes populated after 2 passes through the Rules.
+
+Query Evaluation
+z(a,b,c,d)? Yes(1)
+  a='2', b='2', c='2', d='4'

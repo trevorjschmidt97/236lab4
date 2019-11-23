@@ -1,1 +1,23 @@
-R('1','4')? No
+Rule Evaluation
+R(I,J) :- R(I,Z),E(Z,J).
+  I='1', J='1'
+  I='1', J='2'
+R(I,J) :- R(I,Z),E(Z,J).
+  I='1', J='1'
+  I='1', J='2'
+  I='1', J='3'
+R(I,J) :- R(I,Z),E(Z,J).
+  I='1', J='1'
+  I='1', J='2'
+  I='1', J='3'
+  I='1', J='4'
+R(I,J) :- R(I,Z),E(Z,J).
+  I='1', J='1'
+  I='1', J='2'
+  I='1', J='3'
+  I='1', J='4'
+
+Schemes populated after 4 passes through the Rules.
+
+Query Evaluation
+R('1','4')? Yes(1)

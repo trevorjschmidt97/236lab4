@@ -1,1 +1,11 @@
-c(x,y)? No
+Rule Evaluation
+c(x,y) :- a(x),b(y).
+  x='a', y='b'
+c(x,y) :- a(x),b(y).
+  x='a', y='b'
+
+Schemes populated after 2 passes through the Rules.
+
+Query Evaluation
+c(x,y)? Yes(1)
+  x='a', y='b'
