@@ -47,7 +47,7 @@ relation relation::join(relation input) {
 }
 
 relation relation::unionize(relation input) {
-	//bool added = true;
+	bool added;
 	relation newRelation;
 	newRelation.setName(name);
 	newRelation.setAttribute(attributeNames);
@@ -55,6 +55,7 @@ relation relation::unionize(relation input) {
 		newRelation.addTuple(t);
 	}
 	for (auto t : input.getTuple()) {
+		added = true;
 		/*Tuple j;
 
         	for (unsigned int i = 0; i < t.size(); ++i) {
@@ -62,21 +63,44 @@ relation relation::unionize(relation input) {
         	}
 
 
-		pair<set<Tuple>::iterator,bool> ret = tupleSet.insert(j);
+		pair<set<Tuple>::iterator,bool> ret = newRelation.getTuple().insert(j);
 
         	if(ret.second==false) {
 			added = false;
 		}
-
 		*/
+		unsigned int size = newRelation.getTuple().size();
+
 		newRelation.addTuple(t);
+
+		if (size == newRelation.getTuple().size()) {
+			added = false;
+		}
+		if (added) {
+			cout << "  ";
+			cout << newRelation.getAttribute().at(0) << "=" << t.at(0);
+			for (unsigned int j = 1; j < newRelation.getAttribute().size(); ++j) {
+				cout << ", " << newRelation.getAttribute().at(j) << "=" << t.at(j);
+			}
+			cout << endl;
+		}
 	}
-	/*
-	if (added) {
-		newRelation.toString();
-	}*/
 	return newRelation;
 }
+/*
+void relation::toString() {
+        if (tupleSet.size() != 0) {
+                for (auto t : tupleSet) {
+                        cout << "  ";
+                        cout << attributeNames.at(0) << "=" << t.at(0);
+                        for (unsigned int j = 1; j < attributeNames.size(); ++j) {
+                                cout << ", " << attributeNames.at(j) << "=" << t.at(j);
+                        }
+                        cout << endl;
+                }
+        }
+}
+*/
 
 
 void relation::select1(int index, string input) {

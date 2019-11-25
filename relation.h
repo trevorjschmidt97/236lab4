@@ -27,9 +27,9 @@ public:
 	vector<string> getAttribute() {
 		return attributeNames;
 	}
-	/*void setTuple(set<tuple> input) {
+	void setTuple(set<Tuple> input) {
 		tupleSet = input;
-	}*/
+	}
 	set<Tuple> getTuple() {
 		return tupleSet;
 	}
