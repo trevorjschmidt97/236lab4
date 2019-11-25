@@ -1,16 +1,16 @@
 Rule Evaluation
 R(I,J) :- R(I,Z),E(Z,J).
-  I='1', J='1'
-  I='1', J='2'
+  T='1', U='1'
+  T='1', U='2'
 R(I,J) :- R(I,Z),E(Z,J).
-  I='1', J='1'
-  I='1', J='2'
-  I='1', J='3'
+  T='1', U='1'
+  T='1', U='2'
+  T='1', U='3'
 R(I,J) :- R(I,Z),E(Z,J).
-  I='1', J='1'
-  I='1', J='2'
-  I='1', J='3'
-  I='1', J='4'
+  T='1', U='1'
+  T='1', U='2'
+  T='1', U='3'
+  T='1', U='4'
 R(I,J) :- R(I,Z),E(Z,J).
 
 Schemes populated after 4 passes through the Rules.

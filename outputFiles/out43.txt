@@ -1,16 +1,16 @@
 Rule Evaluation
 cn(c,n) :- snap(S,n,A,P),csg(c,S,G).
-  c='CS101', n='C. Brown'
-  c='CS101', n='P. Patty'
-  c='CS101', n='Snoopy'
-  c='EE200', n='C. Brown'
-  c='EE200', n='P. Patty'
+  C='CS101', N='C. Brown'
+  C='CS101', N='P. Patty'
+  C='CS101', N='Snoopy'
+  C='EE200', N='C. Brown'
+  C='EE200', N='P. Patty'
 ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
-  n='C. Brown', c='CS101', g='A'
-  n='C. Brown', c='EE200', g='B+'
-  n='P. Patty', c='CS101', g='B'
-  n='P. Patty', c='EE200', g='B'
-  n='Snoopy', c='CS101', g='C'
+  N='C. Brown', C='CS101', G='A'
+  N='C. Brown', C='EE200', G='B+'
+  N='P. Patty', C='CS101', G='B'
+  N='P. Patty', C='EE200', G='B'
+  N='Snoopy', C='CS101', G='C'
 cn(c,n) :- snap(S,n,A,P),csg(c,S,G).
 ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
 

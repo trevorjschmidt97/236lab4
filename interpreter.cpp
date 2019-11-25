@@ -65,24 +65,30 @@ void interpreter::executeInterpreter() {
 	int check;
 	int count = 0;
 
+
+
 	cout << "Rule Evaluation\n";
 	//This is the meat of project 4
 	//For each rule in the rule vector
 	do {
+		//reset the check
 		check = 0;
 		for (unsigned int i = 0; i < ruleVect.size(); ++i) {
 			//First print out the rule
 			cout << ruleVect.at(i)->toString();
+			//Now create a new relation starting in the actual part of that rule
 			relation newRelation = interpretQuerie(ruleVect.at(i)->getPredVect().at(1));
+			//This will join all the meat of that rule together
 			for (unsigned int j = 2; j < ruleVect.at(i)->getPredVect().size(); ++j) {
 				newRelation = newRelation.join(interpretQuerie(ruleVect.at(i)->getPredVect().at(j)));
 			}
+
+
 			map<string, int> seenVariables;
+
 			vector<string> simpleName = ruleVect.at(i)->getPredVect().at(0)->getParameterList();
 			for (unsigned int j = 0; j < simpleName.size(); ++j) {
 				for (unsigned int k = 0; k < newRelation.getAttribute().size(); ++k) {
-					//cout << "simpleName.at " << j << " is " << simpleName.at(j) << "\n";
-					//cout << "newrelationgetattribute at " << k << "is " << newRelation.getAttribute().at(k) << "\n";
 					if (simpleName.at(j) == newRelation.getAttribute().at(k)) {
 						seenVariables[simpleName.at(j)] = k;
 					}
@@ -95,28 +101,23 @@ void interpreter::executeInterpreter() {
 			//if there is a difference, change my check, and print out those different tuples
 
 			relation poop = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID());
-
-			relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()) = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).unionize(newRelation);
-
+			if (newRelation.getTuple().size() != poop.getTuple().size()) {
+				relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()) = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).unionize(newRelation);
+			}
 			if (poop.getTuple() != relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).getTuple() ) {
-
-				// Add a way to only print the tuples being added to the relation
-
-				newRelation.toString();
-				//relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).toString();
 				++check;
 			}
-			//else {
-				//relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).toString();
-			//}
-
 		}
 		++count;
 	} while (check != 0);
 
+
+
 	cout << endl;
 	cout << "Schemes populated after " << count <<  " passes through the Rules.\n";
 	cout << endl;
+
+
 
 	cout << "Query Evaluation\n";
 	//This is the meat of project 3

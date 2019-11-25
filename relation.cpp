@@ -53,18 +53,10 @@ relation relation::unionize(relation input) {
 	for (auto t : tupleSet) {
 		newRelation.addTuple(t);
 	}
-	//input.toString();
 	for (auto t : input.getTuple()) {
 		newRelation.addTuple(t);
-	/*
-		cout << "  ";
-		cout << input.getAttribute().at(0) << "=" << t.at(0);
-		for (unsigned int j = 1; j < input.getAttribute().size(); ++j) {
-			cout << ", " << input.getAttribute().at(j) << "=" << t.at(j);
-		}
-		cout << endl;
-	*/
 	}
+	newRelation.toString();
 	return newRelation;
 }
 
