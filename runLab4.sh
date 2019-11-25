@@ -3,7 +3,7 @@
 g++ -Wall -Werror -std=c++17 -g *.cpp -o lab4
 
 
-for i in {50..53}
+for i in {43..49}
 do
 	./lab4 ./inputFiles/in$i.txt > ./outputFiles/out$i.txt
 
@@ -13,15 +13,15 @@ do
 	#cat ./inputFiles/in$i.txt
 	#printf "\n"
 
-	#printf "=====MY OUTPUT FILE=====\n\n"
-	#cat ./outputFiles/out$i.txt
-	#printf "\n"
+	printf "=====MY OUTPUT FILE=====\n\n"
+	cat ./outputFiles/out$i.txt
+	printf "\n"
 
-	#printf "=====ANSWER=====\n\n"
-	#cat ./answers/out$i.txt
-	#printf "\n"
+	printf "=====ANSWER=====\n\n"
+	cat ./answers/out$i.txt
+	printf "\n"
 
-	vimdiff ./outputFiles/out$i.txt ./answers/out$i.txt
+	#diff ./outputFiles/out$i.txt ./answers/out$i.txt
 
 	printf "\n\n"
 done

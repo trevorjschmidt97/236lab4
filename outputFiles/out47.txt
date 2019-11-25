@@ -1,6 +1,5 @@
 Rule Evaluation
 R(A,B,C) :- X(A),Y(B),Z(C).
-  a='1', b='2', c='3'
 R(A,B,C) :- X(A),Y(B),Z(C).
 
 Schemes populated after 2 passes through the Rules.

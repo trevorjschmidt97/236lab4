@@ -47,6 +47,7 @@ relation relation::join(relation input) {
 }
 
 relation relation::unionize(relation input) {
+	//bool added = true;
 	relation newRelation;
 	newRelation.setName(name);
 	newRelation.setAttribute(attributeNames);
@@ -54,9 +55,26 @@ relation relation::unionize(relation input) {
 		newRelation.addTuple(t);
 	}
 	for (auto t : input.getTuple()) {
+		/*Tuple j;
+
+        	for (unsigned int i = 0; i < t.size(); ++i) {
+                	j.push_back(t.at(i));
+        	}
+
+
+		pair<set<Tuple>::iterator,bool> ret = tupleSet.insert(j);
+
+        	if(ret.second==false) {
+			added = false;
+		}
+
+		*/
 		newRelation.addTuple(t);
 	}
-	newRelation.toString();
+	/*
+	if (added) {
+		newRelation.toString();
+	}*/
 	return newRelation;
 }
 
