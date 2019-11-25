@@ -25,8 +25,6 @@ relation relation::join(relation input) {
 	}
 	newRelation.setAttribute(newAttributeStringVect);
 
-
-
 	for (auto t : tupleSet) {
 		for (auto r : input.getTuple()) {
 			bool theyMatch = true;
@@ -55,9 +53,8 @@ relation relation::unionize(relation input) {
 	for (auto t : tupleSet) {
 		newRelation.addTuple(t);
 	}
-	input.toString();
+	//input.toString();
 	for (auto t : input.getTuple()) {
-		
 		newRelation.addTuple(t);
 	/*
 		cout << "  ";

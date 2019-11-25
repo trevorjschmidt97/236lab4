@@ -2,7 +2,6 @@ Rule Evaluation
 c(x,y) :- a(x),b(y).
   x='a', y='b'
 c(x,y) :- a(x),b(y).
-  x='a', y='b'
 
 Schemes populated after 2 passes through the Rules.
 

@@ -93,23 +93,22 @@ void interpreter::executeInterpreter() {
 
 			//creat a funciton to compare the set of tuples of new relation and the original,
 			//if there is a difference, change my check, and print out those different tuples
-			
+
 			relation poop = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID());
 
 			relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()) = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).unionize(newRelation);
 
 			if (poop.getTuple() != relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).getTuple() ) {
-				
-				// Add a way to only print the tuples being added to the relation				
 
+				// Add a way to only print the tuples being added to the relation
 
-				//relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).toString();	
+				newRelation.toString();
+				//relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).toString();
 				++check;
 			}
 			//else {
 				//relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).toString();
 			//}
-			
 
 		}
 		++count;

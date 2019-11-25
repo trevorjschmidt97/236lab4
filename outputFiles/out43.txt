@@ -12,17 +12,7 @@ ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
   n='P. Patty', c='EE200', g='B'
   n='Snoopy', c='CS101', g='C'
 cn(c,n) :- snap(S,n,A,P),csg(c,S,G).
-  c='CS101', n='C. Brown'
-  c='CS101', n='P. Patty'
-  c='CS101', n='Snoopy'
-  c='EE200', n='C. Brown'
-  c='EE200', n='P. Patty'
 ncg(n,c,g) :- snap(S,n,A,P),csg(c,S,g).
-  n='C. Brown', c='CS101', g='A'
-  n='C. Brown', c='EE200', g='B+'
-  n='P. Patty', c='CS101', g='B'
-  n='P. Patty', c='EE200', g='B'
-  n='Snoopy', c='CS101', g='C'
 
 Schemes populated after 2 passes through the Rules.
 
