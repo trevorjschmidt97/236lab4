@@ -17,6 +17,7 @@ before(C1,C2) :- cp(C3,C1),before(C3,C2).
 tthCourses(C) :- cdh(C,'Tu',H).
   C='CS101'
 tthCourses(C) :- cdh(C,'Th',H).
+  C='PH100'
 Schedule(N,C,R,D,H) :- snap(S,N,A,P),csg(C,S,G),cr(C,R),cdh(C,D,H).
   N='C. Brown', C='CS101', R='Turing Aud.', D='Tu', H='10AM'
   N='C. Brown', C='EE200', R='25 Ohm Hall', D='F', H='10AM'
@@ -81,8 +82,9 @@ cdh('EE200',Day,Hour)? Yes(3)
   Day='W', Hour='1PM'
 cr('CS101',Room)? Yes(1)
   Room='Turing Aud.'
-tthCourses(C)? Yes(1)
+tthCourses(C)? Yes(2)
   C='CS101'
+  C='PH100'
 before('CS100','CS206')? Yes(1)
 before('CS100',prerequisiteTo)? Yes(6)
   prerequisiteTo='CS101'

@@ -101,9 +101,9 @@ void interpreter::executeInterpreter() {
 			//if there is a difference, change my check, and print out those different tuples
 
 			relation poop = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID());
-			if (newRelation.getTuple().size() != poop.getTuple().size()) {
+			//if (newRelation.getTuple().size() != poop.getTuple().size()) {
 				relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()) = relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).unionize(newRelation);
-			}
+			//}
 			if (poop.getTuple() != relationMap.at(ruleVect.at(i)->getPredVect().at(0)->getID()).getTuple() ) {
 				++check;
 			}
